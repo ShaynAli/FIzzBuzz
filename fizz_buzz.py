@@ -1,9 +1,9 @@
 import sys
 import argparse
-from typing import Generator
+from typing import Callable, Generator
 
 
-def divisible_by(n: int):
+def divisible_by(n: int) -> Callable[[int], int]:
     """
     Generates a function to check the divisibility of a number by n
     :param n: The factor to test divisibility against
@@ -37,7 +37,7 @@ def fizz_buzz_range(stop: int, *, start: int=1) -> Generator[str]:
         yield fizz_buzz(i)
 
 
-def build_parser():
+def build_parser() -> argparse.ArgumentParser:
     """
     Builds the FizzBuzz parser
     :return: The parser which this program uses in the command line
@@ -52,7 +52,7 @@ def build_parser():
     return parser
 
 
-def main():
+def main() -> None:
     parser = build_parser()
     args = parser.parse_args()
     for fizz_buzz_output in fizz_buzz_range(start=args.start, stop=args.stop):
