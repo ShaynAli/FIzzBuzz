@@ -18,6 +18,14 @@ def fizz_buzz(i):
 
 
 def fizz_buzz_range(stop, *, start=1):
+    """
+    Returns a generator which yields the appropriate FizzBuzz from start to stop.
+    Can be called as fizz_buzz_range(45) where start defaults to 1 , or start can be specified as in
+    fizz_buzz_range(start=10, stop=45).
+    :param stop: The exclusive upper bound
+    :param start: The inclusive lower bound, defaults to 1
+    :return: The next FizzBuzz
+    """
     for i in range(start, stop):
         yield fizz_buzz(i)
 
