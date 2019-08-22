@@ -3,18 +3,24 @@ import argparse
 
 
 def divisible_by(n):
+    """
+    Generates a function to check the divisibility of a number by n
+    :param n: The factor to test divisibility against
+    :return: A function which returns True if a number is divisible by n and False otherwise
+    """
     return lambda x: x % n == 0
 
 
+""" These outputs are printed if their corresponding rules apply """
 output_rules = {
     'Fizz': divisible_by(3),
     'Buzz': divisible_by(5)
 }
 
 
-def fizz_buzz(i):
-    outputs = [output for output, rule in output_rules.items() if rule(i)]
-    return ''.join(outputs) or str(i)
+def fizz_buzz(x):
+    outputs = [output for output, rule in output_rules.items() if rule(x)]
+    return ''.join(outputs) or str(x)
 
 
 def fizz_buzz_range(stop, *, start=1):
@@ -31,6 +37,10 @@ def fizz_buzz_range(stop, *, start=1):
 
 
 def build_parser():
+    """
+    Builds the FizzBuzz parser
+    :return: The parser which this program uses in the command line
+    """
     parser = argparse.ArgumentParser(description='The classic FizzBuzz game in programmatic form.', add_help=False)
     parser.add_argument('-h', '--help', default=argparse.SUPPRESS, action='help',
                         help='Show this help message and exit.')
