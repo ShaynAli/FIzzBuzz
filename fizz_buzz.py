@@ -27,9 +27,9 @@ def build_parser():
     parser.add_argument('-h', '--help', default=argparse.SUPPRESS, action='help',
                         help='Show this help message and exit.')
     parser.add_argument('-s', '--start', default=1, type=int, action='store', metavar='START',
-                        help='The number to start FizzBuzzing at (inclusive)')
+                        help='The number to start FizzBuzzing at (inclusive).')
     parser.add_argument('stop', type=int, action='store', metavar='STOP',
-                        help='The number to end FizzBuzzing at (exclusive)')
+                        help='The number to end FizzBuzzing at (exclusive).')
     return parser
 
 
