@@ -1,8 +1,9 @@
 import sys
 import argparse
+from typing import Generator
 
 
-def divisible_by(n):
+def divisible_by(n: int):
     """
     Generates a function to check the divisibility of a number by n
     :param n: The factor to test divisibility against
@@ -18,12 +19,12 @@ output_rules = {
 }
 
 
-def fizz_buzz(x):
+def fizz_buzz(x: int) -> str:
     outputs = [output for output, rule in output_rules.items() if rule(x)]
     return ''.join(outputs) or str(x)
 
 
-def fizz_buzz_range(stop, *, start=1):
+def fizz_buzz_range(stop: int, *, start: int=1) -> Generator[str]:
     """
     Returns a generator which yields the appropriate FizzBuzz from start to stop.
     Can be called as fizz_buzz_range(45) where start defaults to 1 , or start can be specified as in
